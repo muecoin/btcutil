@@ -16,7 +16,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/muecoin/btcd/chaincfg"
 )
 
 // TestBIP0032Vectors tests the vectors provided by [BIP32] to ensure the
@@ -232,8 +232,7 @@ tests:
 		}
 
 		if extKey.Depth() != uint8(len(test.path)) {
-			t.Errorf("Depth of key %d should match fixture path: %v",
-				extKey.Depth(), len(test.path))
+			t.Errorf("Depth of key %d should match fixture path")
 			continue
 		}
 
@@ -857,7 +856,7 @@ func TestErrors(t *testing.T) {
 		{
 			name: "pubkey not on curve",
 			key:  "xpub661MyMwAqRbcFtXgS5sYJABqqG9YLmC4Q1Rdap9gSE8NqtwybGhePY2gZ1hr9Rwbk95YadvBkQXxzHBSngB8ndpW6QH7zhhsXZ2jHyZqPjk",
-			err:  errors.New("invalid square root"),
+			err:  errors.New("pubkey isn't on secp256k1 curve"),
 		},
 		{
 			name:      "unsupported version",

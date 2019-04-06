@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
+	"github.com/muecoin/btcd/chaincfg/chainhash"
+	"github.com/muecoin/btcd/wire"
 )
 
 // OutOfRangeError describes an error due to accessing an element that is out
@@ -214,6 +214,12 @@ func (b *Block) Height() int32 {
 // SetHeight sets the height of the block in the block chain.
 func (b *Block) SetHeight(height int32) {
 	b.blockHeight = height
+}
+
+// IsProofOfStake returns whether the block is a proof-of-stake
+// block.
+func (b *Block) IsProofOfStake() bool {
+	return len(b.transactions) > 1 && b.transactions[1].MsgTx().IsCoinStake()
 }
 
 // NewBlock returns a new instance of a bitcoin block given an underlying

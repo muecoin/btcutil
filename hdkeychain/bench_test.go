@@ -7,7 +7,7 @@ package hdkeychain_test
 import (
 	"testing"
 
-	"github.com/btcsuite/btcutil/hdkeychain"
+	"github.com/muecoin/btcutil/hdkeychain"
 )
 
 // bip0032MasterPriv1 is the master private extended key from the first set of
@@ -79,6 +79,6 @@ func BenchmarkSerialize(b *testing.B) {
 	b.StartTimer()
 
 	for i := 0; i < b.N; i++ {
-		_ = masterKey.String()
+		masterKey.String()
 	}
 }

@@ -5,10 +5,10 @@
 package bloom
 
 import (
-	"github.com/btcsuite/btcd/blockchain"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/muecoin/btcd/blockchain"
+	"github.com/muecoin/btcd/chaincfg/chainhash"
+	"github.com/muecoin/btcd/wire"
+	"github.com/muecoin/btcutil"
 )
 
 // merkleBlock is used to house intermediate information needed to generate a
